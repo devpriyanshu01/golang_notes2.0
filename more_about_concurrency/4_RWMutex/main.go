@@ -28,11 +28,11 @@ func writeCounter(wg *sync.WaitGroup, value int){
 
 func main() {
 	var wg sync.WaitGroup
-	for range 50 {
+	for range 10 {
 		wg.Add(1)
 		go readCounter(&wg)
 	}
-	time.Sleep(time.Second * 1)
+	time.Sleep(time.Microsecond * 50)
 	wg.Add(1)
 	go writeCounter(&wg, 25)	
 	
